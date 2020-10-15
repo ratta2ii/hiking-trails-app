@@ -9,23 +9,23 @@ class Home extends React.Component {
 
     componentDidMount() {
         const { dispatch } = this.props;
+        console.log("inside Home mounting");
         dispatch(getGeoLocation());
     }
 
 
     render() {
 
-        const { location, locationError } = this.props;
+        const { coords, coordsError } = this.props;
 
-        if (!location) {
-            return <React.Fragment>Error: {locationError.message}</React.Fragment>;
+        if (coordsError) {
+            return <React.Fragment>Error: {coordsError.message}</React.Fragment>;
         } else {
             return (
                 <React.Fragment>
-                    <h3>Latittude: {location.latitude}</h3>
-                    <h3>Longitude: {location.longitude}</h3>
+                    <h3>Latittude: {coords.latitude}</h3>
+                    <h3>Longitude: {coords.longitude}</h3>
                     <Link to="/trails">Find Trails</Link>
-
                 </React.Fragment>
             );
         }
@@ -35,8 +35,8 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        location: state.location,
-        locationError: state.locationError,
+        coords: state.locationSlice.coords,
+        coordsError: state.locationSlice.error,
     }
 }
 
