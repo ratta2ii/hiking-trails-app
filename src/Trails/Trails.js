@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { makeApiCall } from './../actions/trailsActions';
+// import { makeApiCall } from './../actions/trailsActions';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Trail from './../Components/Trail/Trail';
@@ -18,7 +18,8 @@ const Trails = (props) => {
 
     useEffect(() => {
         console.log("TRAILS PROPS inside useEffect()", props)
-        dispatch(makeApiCall());
+        //! This was moved into the getLocation action to run after the coords have been saved
+        // dispatch(makeApiCall());
     }, []);
 
 

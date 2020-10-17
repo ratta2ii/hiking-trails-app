@@ -10,8 +10,8 @@ export const useStyles = makeStyles((theme) => ({
         outline: '1px solid #476163',
         padding: '35px 35px 15px',
         
-        margin: '16vh auto',
-        height: '62vh',
+        margin: '12vh auto',
+        height: '70vh',
         overflowY: 'scroll',
         overflowX: 'hidden',
         [theme.breakpoints.down('md')]: {
