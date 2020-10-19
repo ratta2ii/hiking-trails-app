@@ -26,11 +26,9 @@ export const makeApiCall = () => {
         const { locationSlice } = getState();
         const lat = locationSlice.coords.latitude;
         const long = locationSlice.coords.longitude;
-        // console.log("L: ", location.longitude);
-        // console.log("L: ", location.latitude);
         // sets loading to true
         dispatch(requestTrails());
-        fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&maxResults=10&maxDistance=10&key=${process.env.REACT_APP_HIKING_API_KEY}`)
+        fetch(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${long}&maxResults=5&maxDistance=10&key=${process.env.REACT_APP_HIKING_API_KEY}`)
         .then(res => res.json())
         .then(results => {
             // save trails to a results array, trails
