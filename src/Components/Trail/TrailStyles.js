@@ -107,6 +107,7 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center', 
         justifyContent: 'center',
+        cursor: 'pointer',
         [theme.breakpoints.down('md')]: {
             width: '90%',
             height: '90%',

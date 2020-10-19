@@ -5,13 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 1025,
-        // margin: '150px auto',
+        height: '70vh',
+        margin: '12vh auto',
+        padding: '35px 35px 15px',
         backgroundColor: '#3e5a5dd6',
         outline: '1px solid #476163',
-        padding: '35px 35px 15px',
-        
-        margin: '12vh auto',
-        height: '70vh',
         overflowY: 'scroll',
         overflowX: 'hidden',
         [theme.breakpoints.down('md')]: {
@@ -19,10 +17,11 @@ export const useStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.down('sm')]: {
             maxWidth: 500,
+            height: 'unset',
+            overflowY: 'hidden',
         },
         [theme.breakpoints.down('xs')]: {
             padding: 10,
-
         },
     },
     headerContainer: {
