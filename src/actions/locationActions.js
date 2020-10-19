@@ -1,6 +1,4 @@
 import * as c from './ActionTypes';
-import { makeApiCall } from './trailsActions';
-
 
 
 export const getLocationFailure = (error) => ({
@@ -25,7 +23,6 @@ export const getGeoLocation = () => {
                     latitude: position.coords.latitude,
                 };
                 dispatch(getLocation(coords));
-                dispatch(makeApiCall());
             });
         } else {
             console.log("Geolocation is not supported by this browser.");
