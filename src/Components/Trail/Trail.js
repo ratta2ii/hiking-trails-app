@@ -23,30 +23,29 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import TrailDetails from './../TrailDetails/TrailDetails';
 
 
-
-
-
-
-
 const Trail = (props) => {
+
 
     const {
         name,
         location,
         trailId,
-        trailImage,
         summary,
         stars,
         longitude,
         latitude,
+        handleOpenModal
     } = props;
-
-    console.log(longitude);
-    console.log(latitude);
-
-
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
+
+
+    //* props that are defined using destruting are constants, so defining trailImage here
+    let trailImage = props.trailImage;
+    //* If image is not present for a specific trail, this adds a placeholder
+    if (trailImage === "") {
+        trailImage = "https://ipsumimage.appspot.com/400x400";
+    }
 
 
     const handleExpandClick = () => {
@@ -54,17 +53,14 @@ const Trail = (props) => {
     };
 
 
-    const findCamping = (id) => {
-        console.log("trail id: ", id);
-    }
-
-
     return (
-        <Card className={classes.root} onClick={() => findCamping(trailId)} >
+        <Card className={classes.root}>
             <Grid container>
                 {/* Left Main Container */}
                 <Grid item md={3} className={classes.imgGridItem}>
-                    <Box className={classes.imgContainer}>
+                    <Box 
+                        className={classes.imgContainer}
+                        onClick={(e) => handleOpenModal(e.target.src)}>
                         <img
                             className={classes.mainImage}
                             src={trailImage}
@@ -73,7 +69,7 @@ const Trail = (props) => {
                     </Box>
                 </Grid>
                 {/* Center Main Container */}
-                <Grid item md={6} style={{ padding: 15 }} >
+                <Grid item md={6} style={{ padding: 15 }}>
                     <Grid container>
                         {/* Center top container */}
                         <Grid item xs={12} style={{ minHeight: 185 }}>
