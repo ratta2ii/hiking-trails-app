@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
         textAlign:'center',
     },
     text: {
-        color: '#6aff1e',
+        color: '#929262',
         fontSize: '1rem',
         fontFamily: 'monospace'
     }
