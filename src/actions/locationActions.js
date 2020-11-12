@@ -17,11 +17,13 @@ export const getGeoLocation = () => {
     console.log("inside getGeoLocation");
     return (dispatch, getState) => {
         if (navigator.geolocation) {
+            console.log("In navigator");
             navigator.geolocation.getCurrentPosition(function(position) {
                 let coords = {
                     longitude: position.coords.longitude,
                     latitude: position.coords.latitude,
                 };
+                console.log("Coords: ", coords);
                 dispatch(getLocation(coords));
             });
         } else {
