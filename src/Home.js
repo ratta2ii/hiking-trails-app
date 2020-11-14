@@ -74,7 +74,7 @@ const Home = (props) => {
                             fontWeight: 500,
                             color: '#f9f92c',
                         }}>
-                            PNW HIKING TRAILS
+                            HIKING TRAILS NORTHWEST
                     </Typography>
                 </Box>
                 {/* <h3>Latittude: {coords.latitude}</h3>
